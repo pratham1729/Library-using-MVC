@@ -1,0 +1,25 @@
+{% extends "templates/base.twig" %}
+
+{% block title %}Client Login Page{% endblock %}
+
+{% block body %}
+<h1>Welcome to Online Library Portal</h1>
+<h1>Client Login Portal</h1>
+{% if failed %}
+{{message}} 
+{% endif %}     
+<form action="/authenticate" method="POST">
+<input type="text" name="type" value="client" style="display: none;">
+Username : <input type="text" name="username">
+<br>
+Password : <input type="password" name="password">
+<br>
+<input type="submit" value="Login"/>
+</form>    
+<a href="/ClientRegisterPage">
+<button>Register</button>
+</a> 
+<form action="/" method="GET">
+<input type="submit" value="Home"/>
+</form>
+{% endblock %}

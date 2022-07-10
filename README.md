@@ -1,4 +1,4 @@
-# mvc-lecture
+# Library-MVC
 
 > Basic application with MVC architecture
 

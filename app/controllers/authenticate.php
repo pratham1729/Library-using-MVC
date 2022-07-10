@@ -11,11 +11,17 @@ class Authenticate {
         if($data){
             $check=password_verify($password,$data[1]);
             if($check && $data[2]==0){
+                $_SESSION["username"]=$username;
+                $_SESSION["auth"]=true;
+                $_SESSION["admin"]=false;
                 echo \View\Loader::make()->render("templates/clienthome.twig", array(
                     "uname" => $username,
                     ));
             }
             else if($check && $data[2]==1){
+                $_SESSION["username"]=$username;
+                $_SESSION["auth"]=true;
+                $_SESSION["admin"]=true;
                 echo \View\Loader::make()->render("templates/adminhome.twig", array(
                     "uname" => $username,
                     ));

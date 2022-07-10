@@ -3,5 +3,21 @@
 {% block title %}Admin Register Page{% endblock %}
 
 {% block body %}
-
+<h1>Admin Registration Portal</h1>
+{% if error %}
+<p>{{ msg }}</p>
+{% endif %}      
+<form action="/register" method="POST">
+    <input type="text" name="type" value="admin" style="display: none;">
+    <input type="text" name="uname" placeholder="Username">
+    <br>
+    <input type="password" name="password" placeholder="Password">
+    <br>
+    <input type="password" name="passwordC" placeholder="Confirm Password">
+    <br>
+    <input type="submit" value="Register"/>
+</form>
+<form action="/" method="GET">
+<input type="submit" value="Home"/>
+</form>
 {% endblock %}

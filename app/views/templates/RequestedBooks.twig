@@ -1,0 +1,21 @@
+{% extends "templates/base.twig" %}
+
+{% block title %}Library Page{% endblock %}
+
+{% block body %}
+<h1>Welcome to Online Library Portal</h1>
+<h1>Requested Books</h1>
+{% for book in requested %}
+
+        <tr><td style="padding:10px">{{ book[0] }}</td>
+            <td style="padding:10px">{{ book[1] }}</td>
+            <td style="padding:10px"><form action="/cancel" method="POST"><input type="text" value="{{ book[1] }}" name="bookname" style="display:none"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="bookid" style="display:none"><input type="submit" value="Cancel"></form></td>
+        </tr>
+
+{% endfor %}
+<form action="/clienthome" method="GET">
+<input type="text" name="type" value="client" style="display: none;">
+<input type="submit" value="Home"/>
+</form>
+
+{% endblock %}

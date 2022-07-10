@@ -1,0 +1,24 @@
+{% extends "templates/base.twig" %}
+
+{% block title %}Client Home Page{% endblock %}
+
+{% block body %}
+
+<h1>Client Home Page</h1>      
+Hi {{ usname }}
+<br>
+Welcome to my Library
+<br>
+<form action="/requestportal" method="GET">
+<input type="submit" value="Request a book"/>
+</form>
+<form action="/issuedbooks" method="GET">
+<input type="submit" value="See issued books"/>
+</form>
+<form action="/requestedbooks" method="GET">
+<input type="submit" value="See requests"/>
+</form>
+<form action="/logout" method="GET">
+<input type="submit" value="Logout"/>
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "templates/base.twig" %}
+
+{% block title %}Return Portal{% endblock %}
+
+{% block body %}
+
+<h1>Return Portal</h1>      
+<br>
+Welcome to my Library
+<br>
+<table id="requestlist">
+{% for book in ret %}
+    <tr>
+        <td style="padding:10px">{{ book[0] }}</td><td style="padding:10px">{{ book[1] }}</td>
+        <td>{{ book[2] }}</td>
+        <td style="padding:10px"><form action="/returnaccept" method="POST"><input type="text" value="{{ book[2] }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="bookid" style="display:none"><input type="submit" value="Approve"></form></td>
+    </tr>
+{% endfor %}
+</table>
+
+<form action="/adminhome" method="GET">
+<input type="text" name="type" value="client" style="display: none;">
+<input type="submit" value="Home"/>
+{% endblock %}

@@ -20,6 +20,18 @@ Toro::serve(array(
     "/makerequest" => "\Controller\MakeRequest",
     "/return" => "\Controller\ReturnBook",
     "/cancel" => "\Controller\Cancel",
+    "/viewbooks" => "\Controller\ViewBooks",
+    "/issueportal" => "\Controller\IssuePortal",
+    "/returnportal" => "\Controller\ReturnPortal",
+    "/gotoadminreq" => "\Controller\AdminRegisterRequest",
+    "/addbook" => "\Controller\AddBook",
+    "/removebook" => "\Controller\RemoveBook",
+    "/returnaccept" => "\Controller\ReturnAccept",
+    "/issueaccept" => "\Controller\IssueAccept",
+    "/issuedecline" => "\Controller\IssueDecline",
+    "/approvereq" => "\Controller\ApproveReq",
+    "/denyreq" => "\Controller\DenyReq",
+
 
 
 ));

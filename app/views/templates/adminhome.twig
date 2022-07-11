@@ -1,0 +1,26 @@
+{% extends "templates/base.twig" %}
+
+{% block title %}Admin Home Page{% endblock %}
+
+{% block body %}
+
+<h1>Admin Home Page</h1>      
+<br>
+Welcome to my Library
+<br>
+<form action="/viewbooks" method="GET">
+<input type="submit" value="Books"/>
+</form>
+<form action="/issueportal" method="GET">
+<input type="submit" value="Issue Requests"/>
+</form>
+<form action="/returnportal" method="GET">
+<input type="submit" value="Return Requests"/>
+</form>
+<form action="/gotoadminreq" method="GET">
+<input type="submit" value="Admin Register Request Portal"/>
+</form>
+<form action="/logout" method="GET" style="display: inline-block;">
+<input type="submit" value="Logout"/>
+</form>
+{% endblock %}

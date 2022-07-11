@@ -1,0 +1,37 @@
+{% extends "templates/base.twig" %}
+
+{% block title %} Booklist {% endblock %}
+
+{% block body %}
+
+<br>
+Welcome to my Library
+<br>
+<table id="books">
+{% for book in booklist %}
+<tr>
+<td>{{ book[0] }}</td>
+<td>{{ book[1] }}</td>
+{% if book[2]==null %}
+<td>Available</td>
+{% else %}
+<td>Not Available</td>
+{% endif %}
+</tr>
+{% endfor %}
+
+</table>
+
+<form action="/addbook" method="POST">
+    <input type="text" name="bookid">
+    <input type="text" name="bookname">
+    <input type="submit" value="Add this book"/>
+</form>
+<form action="/removebook" method="POST">
+    <input type="text" name="bookid" placeholder="book_id">
+    <input type="submit" value="remove this book"/>
+</form>
+<form action="/adminhome" method="GET">
+<input type="submit" value="Home"/>
+</form>
+{% endblock %}

@@ -25,6 +25,9 @@
     ```
 
 1. Import schema present in `schema/schema.sql` in your database.
+```console
+	> mysql -u [username] -p [database] < schema/schema.sql
+```
 
 1. Serve the public folder at any port (say 8000):
     ```console

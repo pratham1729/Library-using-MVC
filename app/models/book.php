@@ -13,7 +13,7 @@ class ClientBooks{
 
     public function get_requested($username){
         $db = \DB::get_instance();
-        $stmt = $db->prepare("SELECT distinct * FROM bookrequests WHERE name = ?");
+        $stmt = $db->prepare("SELECT distinct * FROM bookrequests WHERE requested_by = ?");
         $stmt->execute([$username]);
         $row = $stmt->fetchAll();
         return $row;

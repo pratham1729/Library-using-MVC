@@ -22,7 +22,7 @@ class IssuedBooks{
 
 class RequestedBooks{
     public function get(){
-        $data=\Model\ClientBooks::get_issued($_SESSION["username"]);
+        $data=\Model\ClientBooks::get_requested($_SESSION["username"]);
         echo \View\Loader::make()->render("templates/RequestedBooks.twig", array(
             "requested" => $data,
             "uname" => $_SESSION["username"],

@@ -17,5 +17,9 @@ Toro::serve(array(
     "/requestedbooks" => "\Controller\RequestedBooks",
     "/clienthome" => "\Controller\ClientHome",
     "/adminhome" => "\Controller\AdminHome",
+    "/makerequest" => "\Controller\MakeRequest",
+    "/return" => "\Controller\ReturnBook",
+    "/cancel" => "\Controller\Cancel",
+
 
 ));

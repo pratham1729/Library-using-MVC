@@ -1,13 +1,12 @@
 {% extends "templates/base.twig" %}
 
-{% block title %}Library Page{% endblock %}
+{% block title %}Client Request Portal{% endblock %}
 
 {% block body %}
 <center>
 <div class="jumbotron">
-<h1>Welcome to Online Library Portal</h1>
-</div>
 <h1>Client Request Portal</h1>
+</div>
 <table>
 {% for book in booklist %}
 {% if book[2]==null %}

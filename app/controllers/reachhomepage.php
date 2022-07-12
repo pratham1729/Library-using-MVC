@@ -12,8 +12,9 @@ class ClientHome{
 
 class AdminHome{
     public function get(){
+        if($_SESSION["admin"]){
         echo \View\Loader::make()->render("templates/adminhome.twig", array(
             "uname" => $_SESSION["username"],
             ));
-    }
+    }}
 }

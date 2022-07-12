@@ -6,7 +6,7 @@ class MakeRequest{
     public function post(){
         $username=$_REQUEST["username"];
         $bname=$_REQUEST["bookname"];
-        $bid=(int)$_REQUEST["bookid"];
+        $bid=$_REQUEST["bookid"];
         \Model\ClientRequests::make_request($bid,$bname,$username,"i");
         $data=\Model\ClientBooks::get_all_books();
         echo \View\Loader::make()->render("templates/ClientRequestPortal.twig", array(
@@ -34,9 +34,9 @@ class Cancel{
     public function post(){
         $username=$_REQUEST["username"];
         $bname=$_REQUEST["bookname"];
-        $bid=(int)$_REQUEST["bookid"];
+        $bid=$_REQUEST["bookid"];
         \Model\ClientRequests::delete_request($bid,$username);
-        $data=\Model\ClientBooks::get_issued($_SESSION["username"]);
+        $data=\Model\ClientBooks::get_requested($_SESSION["username"]);
         echo \View\Loader::make()->render("templates/RequestedBooks.twig", array(
             "requested" => $data,
             "uname" => $_SESSION["username"],

@@ -26,14 +26,16 @@
 <form action="/addbook" method="POST">
     <input type="text" name="bookid">
     <input type="text" name="bookname">
-    <input type="submit" value="Add this book"/>
+    <input type="submit" value="Add this book" class="btn btn-primary"/>
 </form>
+<br>
+<br>
 <form action="/removebook" method="POST">
     <input type="text" name="bookid" placeholder="book_id">
-    <input type="submit" value="remove this book"/>
+    <input type="submit" value="remove this book" class="btn btn-primary"/>
 </form>
 <form action="/adminhome" method="GET">
-<input type="submit" value="Home"/>
+<input type="submit" value="Home" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

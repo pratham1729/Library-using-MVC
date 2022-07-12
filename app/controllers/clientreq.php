@@ -7,8 +7,8 @@ class MakeRequest{
         $username=$_REQUEST["username"];
         $bname=$_REQUEST["bookname"];
         $bid=$_REQUEST["bookid"];
-        \Model\ClientRequests::make_request($bid,$bname,$username,"i");
-        $data=\Model\ClientBooks::get_all_books();
+        \Model\ClientRequests::makeRequest($bid,$bname,$username,"i");
+        $data=\Model\ClientBooks::getAllBooks();
         echo \View\Loader::make()->render("templates/ClientRequestPortal.twig", array(
             "booklist" => $data,
             "uname" => $_SESSION["username"]
@@ -21,8 +21,8 @@ class ReturnBook{
         $username=$_REQUEST["username"];
         $bname=$_REQUEST["bookname"];
         $bid=(int)$_REQUEST["bookid"];
-        \Model\ClientRequests::make_request($bid,$bname,$username,"r");
-        $data=\Model\ClientBooks::get_issued($_SESSION["username"]);
+        \Model\ClientRequests::makeRequest($bid,$bname,$username,"r");
+        $data=\Model\ClientBooks::getIssued($_SESSION["username"]);
         echo \View\Loader::make()->render("templates/IssuedBooks.twig", array(
             "issued" => $data,
             "uname" => $_SESSION["username"],
@@ -35,8 +35,8 @@ class Cancel{
         $username=$_REQUEST["username"];
         $bname=$_REQUEST["bookname"];
         $bid=$_REQUEST["bookid"];
-        \Model\ClientRequests::delete_request($bid,$username);
-        $data=\Model\ClientBooks::get_requested($_SESSION["username"]);
+        \Model\ClientRequests::deleteRequest($bid,$username);
+        $data=\Model\ClientBooks::getRequested($_SESSION["username"]);
         echo \View\Loader::make()->render("templates/RequestedBooks.twig", array(
             "requested" => $data,
             "uname" => $_SESSION["username"],

@@ -7,9 +7,9 @@ class Authenticate {
         $type = $_POST["type"];
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $data=\Model\User::find_user($username);
+        $data=\Model\User::findUser($username);
         if($data){
-            $check=password_verify($password,$data[1]);
+            $check=password_verify($password.$data[3],$data[1]);
             if($check && $data[2]==0){
                 $_SESSION["username"]=$username;
                 $_SESSION["auth"]=true;
@@ -38,10 +38,13 @@ class Authenticate {
                     "message" => "Incorrect password",
                     ));
             }
+            else{
+                echo \View\Loader::make()->render("templates/home.twig", array());
+            }
         }
         else{
             if($type=="client"){
-                echo \View\Loader::make()->render("templates/CLientLoginPage.twig", array(
+                echo \View\Loader::make()->render("templates/ClientLoginPage.twig", array(
                     "failed" => true,
                     "message" => "User doesn't exist",
                     ));

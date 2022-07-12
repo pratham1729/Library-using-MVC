@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION["auth"]=false;
 require __DIR__."/../vendor/autoload.php";
 
 Toro::serve(array(
@@ -31,7 +30,4 @@ Toro::serve(array(
     "/issuedecline" => "\Controller\IssueDecline",
     "/approvereq" => "\Controller\ApproveReq",
     "/denyreq" => "\Controller\DenyReq",
-
-
-
 ));

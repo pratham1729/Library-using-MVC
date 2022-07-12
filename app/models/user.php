@@ -3,39 +3,39 @@
 namespace Model;
 
 class User {
-    public static function find_user($username) {
-        $db = \DB::get_instance();
-        $stmt = $db->prepare("SELECT * FROM users WHERE name = ?");
-        $stmt->execute([$username]);
-        $row = $stmt->fetch();
+    public static function findUser($username) {
+        $database = \Database::getInstance();
+        $statement = $database->prepare("SELECT * FROM users WHERE name = ?");
+        $statement->execute([$username]);
+        $row = $statement->fetch();
         return $row;
     }
 
-    public static function find_user_admin($username) {
-        $db = \DB::get_instance();
-        $stmt = $db->prepare("SELECT * FROM users WHERE name = ? and admin = 1");
-        $stmt->execute([$username]);
-        $row = $stmt->fetch();
+    public static function findUserAdmin($username) {
+        $database = \Database::getInstance();
+        $statement = $database->prepare("SELECT * FROM users WHERE name = ? and admin = 1");
+        $statement->execute([$username]);
+        $row = $statement->fetch();
         return $row;
     }
 
-    public static function find_user_client($username) {
-        $db = \DB::get_instance();
-        $stmt = $db->prepare("SELECT * FROM users WHERE name = ? and admin = 0");
-        $stmt->execute([$username]);
-        $row = $stmt->fetch();
+    public static function findUserClient($username) {
+        $database = \Database::getInstance();
+        $statement = $database->prepare("SELECT * FROM users WHERE name = ? and admin = 0");
+        $statement->execute([$username]);
+        $row = $statement->fetch();
         return $row;
     }
 
-    public static function add_user($username,$password,$level){
-        $db=\DB::get_instance();
-        $stmt=$db->prepare("insert into users values(?,?,?)");
-        $stmt->execute([$username,$password,$level]);
+    public static function addUser($username,$password,$level,$salt){
+        $database=\Database::getInstance();
+        $statement=$database->prepare("insert into users values(?,?,?,?)");
+        $statement->execute([$username,$password,$level,$salt]);
     }
 
-    public static function admin_request($username,$password){
-        $db=\DB::get_instance();
-        $stmt=$db->prepare("insert into adminregister values(?,?)");
-        $stmt->execute([$username,$password]);
+    public static function adminRequest($username,$password,$salt){
+        $database=\Database::getInstance();
+        $statement=$database->prepare("insert into adminregister values(?,?,?)");
+        $statement->execute([$username,$password,$salt]);
     }
 }

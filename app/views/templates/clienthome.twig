@@ -10,16 +10,19 @@
 Hi {{ uname }}
 Choose an option:
 <form action="/requestportal" method="GET">
-<input type="submit" value="Request a book"/>
+<input type="submit" value="Request a book" class="btn btn-primary"/>
 </form>
+<br><br>
 <form action="/issuedbooks" method="GET">
-<input type="submit" value="See issued books"/>
+<input type="submit" value="See issued books" class="btn btn-primary"/>
 </form>
+<br><br>
 <form action="/requestedbooks" method="GET">
-<input type="submit" value="See requests"/>
+<input type="submit" value="See requests" class="btn btn-primary"/>
 </form>
+<br><br>
 <form action="/logout" method="GET">
-<input type="submit" value="Logout"/>
+<input type="submit" value="Logout" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

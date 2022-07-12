@@ -1,9 +1,9 @@
 <?php
 
-class DB {
+class Database {
     private static $instance;
 
-    public static function get_instance() {
+    public static function getInstance() {
         include __DIR__."/../../config/config.php";
         if (!self::$instance) {
             self::$instance = new PDO(

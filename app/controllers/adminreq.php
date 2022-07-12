@@ -7,7 +7,7 @@ class AddBook{
         $bname=$_REQUEST["bookname"];
         $bid=$_REQUEST["bookid"];
         \Model\AdminRequests::add($bid,$bname);
-        $data=\Model\ClientBooks::get_all_books();
+        $data=\Model\ClientBooks::getAllBooks();
         echo \View\Loader::make()->render("templates/AdminBooks.twig", array(
             "booklist" => $data,
         ));
@@ -18,7 +18,7 @@ class RemoveBook{
     public function post(){
         $bid=$_REQUEST["bookid"];
         \Model\AdminRequests::remove($bid);
-        $data=\Model\ClientBooks::get_all_books();
+        $data=\Model\ClientBooks::getAllBooks();
         echo \View\Loader::make()->render("templates/AdminBooks.twig", array(
             "booklist" => $data,
         ));
@@ -29,8 +29,8 @@ class IssueAccept{
     public function post(){
         $bid=$_REQUEST["bookid"];
         $username=$_REQUEST["username"];
-        \Model\AdminRequests::issue_accept($bid,$username);
-        $data=\Model\ClientBooks::get_issuerequest();
+        \Model\AdminRequests::issueAccept($bid,$username);
+        $data=\Model\ClientBooks::getIssueRequest();
         echo \View\Loader::make()->render("templates/IssuePortal.twig", array(
             "issue" => $data,
         ));
@@ -41,8 +41,8 @@ class IssueDecline{
     public function post(){
         $bid=$_REQUEST["bookid"];
         $username=$_REQUEST["username"];
-        \Model\AdminRequests::issue_decline($bid,$username);
-        $data=\Model\ClientBooks::get_issuerequest();
+        \Model\AdminRequests::issueDecline($bid,$username);
+        $data=\Model\ClientBooks::getIssueRequest();
         echo \View\Loader::make()->render("templates/IssuePortal.twig", array(
             "issue" => $data,
         ));
@@ -53,8 +53,8 @@ class ReturnAccept{
     public function post(){
         $bid=$_REQUEST["bookid"];
         $username=$_REQUEST["username"];
-        \Model\AdminRequests::return_accept($bid,$username);
-        $data=\Model\ClientBooks::get_returnrequest();
+        \Model\AdminRequests::returnAccept($bid,$username);
+        $data=\Model\ClientBooks::getReturnRequest();
         echo \View\Loader::make()->render("templates/ReturnPortal.twig", array(
             "ret" => $data,
         ));
@@ -65,8 +65,9 @@ class ApproveReq{
     public function post(){
         $password=$_REQUEST["password"];
         $username=$_REQUEST["username"];
-        \Model\AdminRequests::approve_admin($username,$password);
-        $data=\Model\ClientBooks::get_adminrequest();
+        $salt=$_REQUEST["salt"];
+        \Model\AdminRequests::approveAdmin($username,$password,$salt);
+        $data=\Model\ClientBooks::getAdminRequest();
         echo \View\Loader::make()->render("templates/AdminRegisterRequest.twig", array(
             "adminreq" => $data,
         ));
@@ -77,8 +78,8 @@ class DenyReq{
     public function post(){
         $password=$_REQUEST["password"];
         $username=$_REQUEST["username"];
-        \Model\AdminRequests::deny_admin($username,$password);
-        $data=\Model\ClientBooks::get_adminrequest();
+        \Model\AdminRequests::denyAdmin($username,$password);
+        $data=\Model\ClientBooks::getAdminRequest();
         echo \View\Loader::make()->render("templates/AdminRegisterRequest.twig", array(
             "adminreq" => $data,
         ));

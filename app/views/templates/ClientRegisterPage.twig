@@ -11,17 +11,20 @@
 <p>{{ msg }}</p>
 {% endif %}
 <form action="/register" method="POST">
+<table>
     <input type="text" name="type" value="client" style="display: none;">
-    Username:<input type="text" name="uname" placeholder="Username">
+    <tr><td>Username:</td><td><input type="text" name="uname" placeholder="Username"></td></tr>
     <br>
-    Password:<input type="password" name="password" placeholder="Password">
+    <tr><td>Password:</td><td><input type="password" name="password" placeholder="Password"></td></tr>
     <br>
-    Confirm Password:<input type="password" name="passwordC" placeholder="Confirm Password">
+    <tr><td>Confirm Password:</td><td><input type="password" name="passwordC" placeholder="Confirm Password"></td></tr>
     <br>
-    <input type="submit" value="Register"/>
+</table>
+    <input type="submit" value="Register" class="btn btn-primary"/>
 </form>
+<br>
 <form action="/" method="GET">
-<input type="submit" value="Home"/>
+<input type="submit" value="Home" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

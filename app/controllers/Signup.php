@@ -8,12 +8,13 @@ class Register{
         $password=$_POST["password"];
         $passwordC=$_POST["passwordC"];
         $type=$_POST["type"];
-        $passwordhash=password_hash($password,PASSWORD_DEFAULT);
+        $salt = bin2hex(random_bytes(4));
+        $passwordhash=password_hash($password.$salt,PASSWORD_DEFAULT);
         if($type=="client"){
-            $data=\Model\User::find_user_client($username);
+            $data=\Model\User::findUserClient($username);
             if(!$data){
                 if($password==$passwordC){
-                    \Model\User::add_user($username,$passwordhash,0);
+                    \Model\User::addUser($username,$passwordhash,0,$salt);
                     echo \View\Loader::make()->render("templates/ClientLoginPage.twig", array());
                 }else{
                     echo \View\Loader::make()->render("templates/ClientRegisterPage.twig", array(
@@ -30,10 +31,10 @@ class Register{
             }            
         }
         else if($type=="admin"){
-            $data=\Model\User::find_user_admin($username);
+            $data=\Model\User::findUserAdmin($username);
             if(!$data){
                 if($password==$passwordC){
-                    \Model\User::admin_request($username,$passwordhash);
+                    \Model\User::adminRequest($username,$passwordhash,$salt);
                     echo \View\Loader::make()->render("templates/AdminLoginPage.twig", array());
                 }else{
                     echo \View\Loader::make()->render("templates/AdminRegisterPage.twig", array(

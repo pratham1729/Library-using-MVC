@@ -3,9 +3,11 @@
 {% block title %}Client Home Page{% endblock %}
 
 {% block body %}
-
+<center>
+<div class="jumbotron">
 <h1>Client Home Page</h1>      
-Hi {{ usname }}
+</div>
+Hi {{ uname }}
 <br>
 Welcome to my Library
 <br>
@@ -21,4 +23,5 @@ Welcome to my Library
 <form action="/logout" method="GET">
 <input type="submit" value="Logout"/>
 </form>
+</center>
 {% endblock %}

@@ -3,7 +3,10 @@
 {% block title %}Library Page{% endblock %}
 
 {% block body %}
+<center>
+<div class="jumbotron">
 <h1>Welcome to Online Library Portal</h1>
+</div>
 <h1>Client Request Portal</h1>
 <table>
 {% for book in booklist %}
@@ -32,5 +35,6 @@
 <form action="/clienthome" method="GET">
 <input type="text" name="type" value="client" style="display: none;">
 <input type="submit" value="Home"/>
-
+</form>
+</center>
 {% endblock %}

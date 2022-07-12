@@ -3,7 +3,10 @@
 {% block title %}Admin Login Page{% endblock %}
 
 {% block body %}
+<center>
+<div class="jumbotron">
 <h1>Welcome to Online Library Portal</h1>
+</div>
 <h1>Admin Login Portal</h1>
 {% if failed %}
 {{message}} 
@@ -17,9 +20,10 @@ Password : <input type="password" name="password">
 <input type="submit" value="Login"/>
 </form>    
 <a href="/AdminRegisterPage">
-<button>Register</button>
+<input type="button" value="Register"/>
 </a> 
 <form action="/" method="GET">
 <input type="submit" value="Home"/>
 </form>
+</center>
 {% endblock %}

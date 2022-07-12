@@ -3,8 +3,10 @@
 {% block title %}Return Portal{% endblock %}
 
 {% block body %}
-
+<center>
+<div class="jumbotron">
 <h1>Return Portal</h1>      
+</div>
 <br>
 Welcome to my Library
 <br>
@@ -21,4 +23,6 @@ Welcome to my Library
 <form action="/adminhome" method="GET">
 <input type="text" name="type" value="client" style="display: none;">
 <input type="submit" value="Home"/>
+</form>
+</center>
 {% endblock %}

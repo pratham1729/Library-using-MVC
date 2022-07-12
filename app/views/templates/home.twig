@@ -3,11 +3,15 @@
 {% block title %}Library{% endblock %}
 
 {% block body %}
+<center>
+<div class="jumbotron">
 <h1>Welcome to Online Library Portal</h1>      
+</div>
 <form action="/admin" method="GET">
     <input type="submit" value="Admin"/>
 </form>
 <form action="/client" method="GET">
     <input type="submit" value="Client"/>
 </form>
+</center>
 {% endblock %}

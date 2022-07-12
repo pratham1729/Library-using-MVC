@@ -3,8 +3,10 @@
 {% block title %}Library Page{% endblock %}
 
 {% block body %}
-<h1>Welcome to Online Library Portal</h1>
+<center>
+<div class="jumbotron">
 <h1>Requested Books</h1>
+</div>
 {% for book in requested %}
 
         <tr><td style="padding:10px">{{ book[0] }}</td>
@@ -17,5 +19,5 @@
 <input type="text" name="type" value="client" style="display: none;">
 <input type="submit" value="Home"/>
 </form>
-
+</center>
 {% endblock %}

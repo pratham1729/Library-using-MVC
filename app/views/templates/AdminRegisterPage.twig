@@ -3,7 +3,10 @@
 {% block title %}Admin Register Page{% endblock %}
 
 {% block body %}
+<center>
+<div class="jumbotron">
 <h1>Admin Registration Portal</h1>
+</div>
 {% if error %}
 <p>{{ msg }}</p>
 {% endif %}      
@@ -20,4 +23,5 @@
 <form action="/" method="GET">
 <input type="submit" value="Home"/>
 </form>
+</center>
 {% endblock %}

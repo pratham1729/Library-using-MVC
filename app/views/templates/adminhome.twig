@@ -3,11 +3,10 @@
 {% block title %}Admin Home Page{% endblock %}
 
 {% block body %}
-
+<center>
+<div class="jumbotron">
 <h1>Admin Home Page</h1>      
-<br>
-Welcome to my Library
-<br>
+</div>
 <form action="/viewbooks" method="GET">
 <input type="submit" value="Books"/>
 </form>
@@ -23,4 +22,5 @@ Welcome to my Library
 <form action="/logout" method="GET" style="display: inline-block;">
 <input type="submit" value="Logout"/>
 </form>
+</center>
 {% endblock %}

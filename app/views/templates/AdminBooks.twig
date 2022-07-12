@@ -3,10 +3,12 @@
 {% block title %} Booklist {% endblock %}
 
 {% block body %}
-
+<center>
+<div class="jumbotron">
 <br>
-Welcome to my Library
+<h1>Welcome to my Library</h1>
 <br>
+</div>
 <table id="books">
 {% for book in booklist %}
 <tr>
@@ -34,4 +36,5 @@ Welcome to my Library
 <form action="/adminhome" method="GET">
 <input type="submit" value="Home"/>
 </form>
+</center>
 {% endblock %}

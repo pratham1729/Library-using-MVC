@@ -5,26 +5,47 @@
 {% block body %}
 <center>
 <div class="jumbotron">
-<h1>Client Registration Portal</h1>
+    <h1>Client Registration Portal</h1>
 </div>
 {% if error %}
 <p>{{ msg }}</p>
 {% endif %}
 <form action="/register" method="POST">
-<table>
-    <input type="text" name="type" value="client" style="display: none;">
-    <tr><td>Username:</td><td><input type="text" name="uname" placeholder="Username"></td></tr>
-    <br>
-    <tr><td>Password:</td><td><input type="password" name="password" placeholder="Password"></td></tr>
-    <br>
-    <tr><td>Confirm Password:</td><td><input type="password" name="passwordC" placeholder="Confirm Password"></td></tr>
-    <br>
-</table>
+<input type="text" name="type" value="client" style="display: none;">
+    <table>
+        <tr>
+            <td>
+                Username:
+            </td>
+            <td>    
+                <input type="text" name="username" placeholder="Username">
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                Password:
+            </td>
+            <td>
+                <input type="password" name="password" placeholder="Password">
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                Confirm Password:
+            </td>
+            <td>
+                <input type="password" name="passwordC" placeholder="Confirm Password">
+            </td>
+        </tr>
+        <br>
+    </table>
     <input type="submit" value="Register" class="btn btn-primary"/>
 </form>
 <br>
 <form action="/" method="GET">
-<input type="submit" value="Home" class="btn btn-primary"/>
+    <input type="submit" value="Home" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

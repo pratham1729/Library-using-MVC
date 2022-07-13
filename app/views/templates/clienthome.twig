@@ -5,24 +5,24 @@
 {% block body %}
 <center>
 <div class="jumbotron">
-<h1>Client Home Page</h1>      
+    <h1>Client Home Page</h1>      
 </div>
-Hi {{ uname }}
+<p>Hi {{ uname }}</p>
 Choose an option:
 <form action="/requestportal" method="GET">
-<input type="submit" value="Request a book" class="btn btn-primary"/>
+    <input type="submit" value="Request a book" class="btn btn-primary"/>
 </form>
 <br><br>
 <form action="/issuedbooks" method="GET">
-<input type="submit" value="See issued books" class="btn btn-primary"/>
+    <input type="submit" value="See issued books" class="btn btn-primary"/>
 </form>
 <br><br>
 <form action="/requestedbooks" method="GET">
-<input type="submit" value="See requests" class="btn btn-primary"/>
+    <input type="submit" value="See requests" class="btn btn-primary"/>
 </form>
 <br><br>
 <form action="/logout" method="GET">
-<input type="submit" value="Logout" class="btn btn-primary"/>
+    <input type="submit" value="Logout" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

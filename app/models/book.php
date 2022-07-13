@@ -15,39 +15,39 @@ class ClientBooks{
         $database = \Database::getInstance();
         $statement = $database->prepare("SELECT distinct * FROM bookrequests WHERE requested_by = ?");
         $statement->execute([$username]);
-        $row = $statement->fetchAll();
-        return $row;
+        $requested_books = $statement->fetchAll();
+        return $requested_books;
     }
 
     public function getAllBooks(){
         $database = \Database::getInstance();
         $statement = $database->prepare("SELECT * FROM books");
         $statement->execute();
-        $allbooks = $statement->fetchAll();
-        return $allbooks;
+        $all_books = $statement->fetchAll();
+        return $all_books;
     }
 
     public function getIssueRequest(){
         $database = \Database::getInstance();
-        $statement = $database->prepare("SELECT * FROM bookrequests where type='i'");
+        $statement = $database->prepare("SELECT distinct  * FROM bookrequests where type='i'");
         $statement->execute();
-        $issuereq = $statement->fetchAll();
-        return $issuereq;
+        $issue_req = $statement->fetchAll();
+        return $issue_req;
     }
 
     public function getReturnRequest(){
-        $database = \Database::get_instance();
-        $statement = $database->prepare("SELECT * FROM bookrequests where type='r'");
+        $database = \Database::getInstance();
+        $statement = $database->prepare("SELECT distinct * FROM bookrequests where type='r'");
         $statement->execute();
-        $returnreq = $statement->fetchAll();
-        return $returnreq;
+        $return_req = $statement->fetchAll();
+        return $return_req;
     }
 
     public function getAdminRequest(){
         $database = \Database::getInstance();
         $statement = $database->prepare("SELECT * FROM adminregister");
         $statement->execute();
-        $adminreq = $statement->fetchAll();
-        return $adminreq;
+        $admin_req = $statement->fetchAll();
+        return $admin_req;
     }
 }

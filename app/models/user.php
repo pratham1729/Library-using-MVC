@@ -7,24 +7,24 @@ class User {
         $database = \Database::getInstance();
         $statement = $database->prepare("SELECT * FROM users WHERE name = ?");
         $statement->execute([$username]);
-        $row = $statement->fetch();
-        return $row;
+        $user = $statement->fetch();
+        return $user;
     }
 
     public static function findUserAdmin($username) {
         $database = \Database::getInstance();
         $statement = $database->prepare("SELECT * FROM users WHERE name = ? and admin = 1");
         $statement->execute([$username]);
-        $row = $statement->fetch();
-        return $row;
+        $user = $statement->fetch();
+        return $user;
     }
 
     public static function findUserClient($username) {
         $database = \Database::getInstance();
         $statement = $database->prepare("SELECT * FROM users WHERE name = ? and admin = 0");
         $statement->execute([$username]);
-        $row = $statement->fetch();
-        return $row;
+        $user = $statement->fetch();
+        return $user;
     }
 
     public static function addUser($username,$password,$level,$salt){

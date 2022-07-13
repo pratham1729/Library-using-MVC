@@ -5,34 +5,44 @@
 {% block body %}
 <center>
 <div class="jumbotron">
-<h1>Welcome to Online Library Portal</h1>
+    <h1>Welcome to Online Library Portal</h1>
 </div>
 <h1>Admin Login Portal</h1>
 {% if failed %}
-{{message}} 
+    {{message}} 
 {% endif %}
     
 <form action="/authenticate" method="POST">
-<table>
-<tr>
-<input type="text" name="type" value="admin" style="display: none;">
-<td>Username :</td><td><input type="text" name="username"></td>
-</tr>
-<br>
-<tr>
-<td>Password :</td><td><input type="password" name="password"></td>
-</tr>
-<br>
-</table>
-<input type="submit" value="Login" class="btn btn-primary"/>
+    <table>
+    <input type="text" name="type" value="admin" style="display: none;">
+    <tr>
+        <td>
+            Username :
+        </td>
+        <td>
+            <input type="text" name="username">
+        </td>
+    </tr>
+    <br>
+    <tr>
+        <td>
+            Password :
+        </td>
+        <td>
+            <input type="password" name="password">
+        </td>
+    </tr>
+    <br>
+    </table>
+    <input type="submit" value="Login" class="btn btn-primary"/>
 </form>   
 <br> 
 <a href="/AdminRegisterPage">
-<input type="button" value="Register" class="btn btn-primary"/>
+    <input type="button" value="Register" class="btn btn-primary"/>
 </a>
 <br><br>
 <form action="/" method="GET">
-<input type="submit" value="Home" class="btn btn-primary"/>
+    <input type="submit" value="Home" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

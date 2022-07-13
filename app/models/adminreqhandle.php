@@ -3,40 +3,40 @@
 namespace Model;
 
 class AdminRequests{
-    public function add($bid,$bname){      
+    public function add($book_id,$book_name){      
         $database = \Database::getInstance();
         $statement = $database->prepare("insert into books values(?,?,null)");
-        $statement->execute([$bid,$bname]);        
+        $statement->execute([$book_id,$book_name]);        
     }
 
-    public function remove($bid){      
+    public function remove($book_id){      
         $database = \Database::getInstance();
         $statement = $database->prepare("delete from books where bid=?");
-        $statement->execute([$bid]);        
+        $statement->execute([$book_id]);        
     }
 
-    public function issueAccept($bid,$username){
+    public function issueAccept($book_id,$username){
         $database = \Database::getInstance();
         $statement = $database->prepare("delete from bookrequests where bid=? and requested_by=?");
-        $statement->execute([$bid,$username]);
+        $statement->execute([$book_id,$username]);
 
         $statement= $database->prepare("update books set issued_by=? where bid=?");
-        $statement->execute([$username,$bid]);
+        $statement->execute([$username,$book_id]);
     }
 
-    public function issueDecline($bid,$username){
+    public function issueDecline($book_id,$username){
         $database = \Database::getInstance();
         $statement = $database->prepare("delete from bookrequests where bid=? and requested_by=?");
-        $statement->execute([$bid,$username]);
+        $statement->execute([$book_id,$username]);
     }
 
-    public function returnAccept($bid,$username){
+    public function returnAccept($book_id,$username){
         $database = \Database::getInstance();
         $statement = $database->prepare("delete from bookrequests where bid=? and requested_by=?");
-        $statement->execute([$bid,$username]);
+        $statement->execute([$book_id,$username]);
 
         $statement= $database->prepare("update books set issued_by=null where bid=?");
-        $statement->execute([$bid]);
+        $statement->execute([$book_id]);
     }
 
     public function approveAdmin($username,$password,$salt){

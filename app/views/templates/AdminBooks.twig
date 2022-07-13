@@ -5,37 +5,45 @@
 {% block body %}
 <center>
 <div class="jumbotron">
-<br>
-<h1>Admin Book Management</h1>
-<br>
+    <br>
+    <h1>Admin Book Management</h1>
+    <br>
 </div>
 <table id="books">
 {% for book in booklist %}
-<tr>
-<td>{{ book[0] }}</td>
-<td>{{ book[1] }}</td>
-{% if book[2]==null %}
-<td>Available</td>
-{% else %}
-<td>Not Available</td>
-{% endif %}
-</tr>
+    <tr>
+        <td>
+            {{ book[0] }}
+        </td>
+        <td>
+            {{ book[1] }}
+        </td>
+    {% if book[2]==null %}
+        <td>
+            Available
+        </td>
+    {% else %}
+        <td>
+            Not Available
+        </td>
+    {% endif %}
+    </tr>
 {% endfor %}
 
 </table>
 <form action="/addbook" method="POST">
-    <input type="text" name="bookid">
-    <input type="text" name="bookname">
+    <input type="text" name="book-id">
+    <input type="text" name="book-name">
     <input type="submit" value="Add this book" class="btn btn-primary"/>
 </form>
 <br>
 <br>
 <form action="/removebook" method="POST">
-    <input type="text" name="bookid" placeholder="book_id">
-    <input type="submit" value="remove this book" class="btn btn-primary"/>
+    <input type="text" name="book-id" placeholder="Book Id">
+    <input type="submit" value="Remove this book" class="btn btn-primary"/>
 </form>
 <form action="/adminhome" method="GET">
-<input type="submit" value="Home" class="btn btn-primary"/>
+    <input type="submit" value="Home" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

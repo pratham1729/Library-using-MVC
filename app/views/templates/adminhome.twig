@@ -5,26 +5,26 @@
 {% block body %}
 <center>
 <div class="jumbotron">
-<h1>Admin Home Page</h1>      
+    <h1>Admin Home Page</h1>      
 </div>
 <form action="/viewbooks" method="GET">
-<input type="submit" value="Books" class="btn btn-primary"/>
+    <input type="submit" value="Books" class="btn btn-primary"/>
 </form>
 <br><br>
 <form action="/issueportal" method="GET">
-<input type="submit" value="Issue Requests" class="btn btn-primary"/>
+    <input type="submit" value="Issue Requests" class="btn btn-primary"/>
 </form>
 <br><br>
 <form action="/returnportal" method="GET">
-<input type="submit" value="Return Requests" class="btn btn-primary"/>
+    <input type="submit" value="Return Requests" class="btn btn-primary"/>
 </form>
 <br><br>
 <form action="/gotoadminreq" method="GET">
-<input type="submit" value="Admin Register Request Portal" class="btn btn-primary"/>
+    <input type="submit" value="Admin Register Request Portal" class="btn btn-primary"/>
 </form>
 <br><br>
 <form action="/logout" method="GET" style="display: inline-block;">
-<input type="submit" value="Logout" class="btn btn-primary"/>
+    <input type="submit" value="Logout" class="btn btn-primary"/>
 </form>
 </center>
 {% endblock %}

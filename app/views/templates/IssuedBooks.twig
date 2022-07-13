@@ -5,21 +5,26 @@
 {% block body %}
 <center>
 <div class="jumbotron">
-<h1>Issued Books</h1>
+    <h1>Issued Books</h1>
 </div>
-
+<table>
 {% for book in issued %}
-
-        <tr><td style="padding:10px">{{ book[0] }}</td>
-            <td style="padding:10px">{{ book[1] }}</td>
-            <td style="padding:10px"><form action="/return" method="POST"><input type="text" value="{{ book[1] }}" name="bookname" style="display:none"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="bookid" style="display:none"><input type="submit" value="Return" class="btn btn-primary"></form></td>
-        </tr>
-
+    <tr>
+        <td style="padding:10px">
+            {{ book[0] }}
+        </td>
+        <td style="padding:10px">
+            {{ book[1] }}
+        </td>
+        <td style="padding:10px">
+            <form action="/return" method="POST"><input type="text" value="{{ book[1] }}" name="book-name" style="display:none"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="book-id" style="display:none"><input type="submit" value="Return" class="btn btn-primary"></form>
+        </td>
+    </tr>
 {% endfor %}
 <br><br>
 <form action="/clienthome" method="GET">
-<input type="text" name="type" value="client" style="display: none;">
-<input type="submit" value="Home" class="btn btn-primary"/>
+    <input type="text" name="type" value="client" style="display: none;">
+    <input type="submit" value="Home" class="btn btn-primary"/>
 </form>
 </center>
 

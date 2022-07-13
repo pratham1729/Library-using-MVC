@@ -7,8 +7,8 @@ class ClientBooks{
         $database = \Database::getInstance();
         $statement = $database->prepare("SELECT * FROM books WHERE issued_by= ?");
         $statement->execute([$username]);
-        $row = $statement->fetchAll();
-        return $row;        
+        $issued_books = $statement->fetchAll();
+        return $issued_books;        
     }
 
     public function getRequested($username){

@@ -39,3 +39,5 @@ class User {
         $statement->execute([$username,$password,$salt]);
     }
 }
+
+?>

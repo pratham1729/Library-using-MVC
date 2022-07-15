@@ -2,10 +2,10 @@
 
 namespace Controller;
 
-class ClientHome{
+class AdminHome{
     public function get(){
-        if($_SESSION["auth"]){
-        echo \View\Loader::make()->render("templates/clienthome.twig", array(
+        if($_SESSION["admin"]){
+        echo \View\Loader::make()->render("templates/AdminHome.twig", array(
             "uname" => $_SESSION["username"],
             ));
         }

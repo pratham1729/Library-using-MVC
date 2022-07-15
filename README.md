@@ -2,6 +2,13 @@
 
 > Library Management System using MVC architecture. Written in PHP using ToroPHP. Twig is the templating engine used. 
 
+## Dependencies
+* Twig v3.0
+* Composer v2.3.7
+* Apache v2.4
+* MySQL v8.0.29
+* PHP v7.4
+
 ## Setup
 
 1. Clone the repository and `cd` into it.

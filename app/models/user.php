@@ -5,7 +5,7 @@ namespace Model;
 class User {
     public static function findUser($username) {
         $database = \Database::getInstance();
-        $statement = $database->prepare("SELECT * FROM users WHERE name = ?");
+        $statement = $database->prepare("SELECT name,password_hash,admin,salt FROM users WHERE name = ?");
         $statement->execute([$username]);
         $user = $statement->fetch();
         return $user;
@@ -13,7 +13,7 @@ class User {
 
     public static function findUserAdmin($username) {
         $database = \Database::getInstance();
-        $statement = $database->prepare("SELECT * FROM users WHERE name = ? and admin = 1");
+        $statement = $database->prepare("SELECT name,password_hash,admin,salt FROM users WHERE name = ? and admin = 1");
         $statement->execute([$username]);
         $user = $statement->fetch();
         return $user;
@@ -21,7 +21,7 @@ class User {
 
     public static function findUserClient($username) {
         $database = \Database::getInstance();
-        $statement = $database->prepare("SELECT * FROM users WHERE name = ? and admin = 0");
+        $statement = $database->prepare("SELECT name,password_hash,admin,salt FROM users WHERE name = ? and admin = 0");
         $statement->execute([$username]);
         $user = $statement->fetch();
         return $user;

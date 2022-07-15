@@ -14,7 +14,7 @@ class Authenticate {
                 $_SESSION["username"]=$username;
                 $_SESSION["auth"]=true;
                 $_SESSION["admin"]=false;
-                echo \View\Loader::make()->render("templates/clienthome.twig", array(
+                echo \View\Loader::make()->render("templates/ClientHome.twig", array(
                     "uname" => $username,
                     ));
             }
@@ -22,7 +22,7 @@ class Authenticate {
                 $_SESSION["username"]=$username;
                 $_SESSION["auth"]=true;
                 $_SESSION["admin"]=true;
-                echo \View\Loader::make()->render("templates/adminhome.twig", array(
+                echo \View\Loader::make()->render("templates/AdminHome.twig", array(
                     "uname" => $username,
                     ));
             }

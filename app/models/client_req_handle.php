@@ -11,7 +11,7 @@ class ClientRequests {
 
     public function deleteRequest($book_id,$username){
         $database = \Database::getInstance();
-        $statement = $database->prepare("delete from bookrequests where bid=? and requested_by=?");
+        $statement = $database->prepare("delete from bookrequests where book_id=? and requested_by=?");
         $statement->execute([$book_id,$username]);
     }
 }

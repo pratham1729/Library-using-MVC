@@ -38,9 +38,15 @@ else
     echo '?>' >> config/config.php
 
     mysql -u $DB_USERNAME -p $DB_NAME < schema/schema.sql
-
-    composer install
-    composer dump-autoload
-    cd public
-    php -S localhost:8000
+    
+    if [ $? -eq 0 ]; then        
+        composer install
+        composer dump-autoload
+        cd public
+        php -S localhost:8000
+    else 
+        echo "Connection to Database Failed, please check your credentials"
+        rm config/config.php
+        exit
+    fi
 fi

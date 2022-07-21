@@ -9,7 +9,6 @@ if [[ -f config/config.php ]]; then
 
 else
 
-    echo "Create a new database for setting up your project"
     echo "Enter the Details"
 
     echo "Enter host"
@@ -37,7 +36,8 @@ else
     echo '$DB_PASSWORD="'$DB_PASSWORD'";'>> config/config.php
     echo '?>' >> config/config.php
 
-    mysql -u $DB_USERNAME -p $DB_NAME < schema/schema.sql
+    mysql -u $DB_USERNAME -p$DB_PASSWORD -e "create database $DB_NAME"
+    mysql -u $DB_USERNAME -p$DB_PASSWORD $DB_NAME < schema/schema.sql
     
     if [ $? -eq 0 ]; then        
         composer install

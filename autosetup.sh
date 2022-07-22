@@ -37,7 +37,7 @@ else
     echo '?>' >> config/config.php
 
     mysql -u $DB_USERNAME -p$DB_PASSWORD -e "create database $DB_NAME"
-    if [ $? -eq 0]; then
+    if [ $? -eq 0 ]; then
         mysql -u $DB_USERNAME -p$DB_PASSWORD $DB_NAME < schema/schema.sql
         if [ $? -eq 0 ]; then        
             composer install
@@ -53,4 +53,5 @@ else
         echo "Connection to Database Failed, please check your credentials"
         rm config/config.php
         exit      
+    fi
 fi

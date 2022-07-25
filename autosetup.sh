@@ -23,9 +23,9 @@ else
     echo "Enter your username"
     read DB_USERNAME
 
-    echo "Enter your password"
-    read -s -p DB_PASSWORD
-
+    read -s -p "Enter your password" DB_PASSWORD
+    echo
+    
     touch config/config.php
 
     echo '<?php' > config/config.php

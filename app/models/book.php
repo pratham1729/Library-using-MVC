@@ -13,7 +13,7 @@ class ClientBooks{
 
     public function getRequested($username){
         $database = \Database::getInstance();
-        $statement = $database->prepare("SELECT distinct book_id,book_name,requested_by FROM bookrequests WHERE requested_by = ?");
+        $statement = $database->prepare("SELECT distinct book_id,book_name,requested_by,type FROM bookrequests WHERE requested_by = ?");
         $statement->execute([$username]);
         $requested_books = $statement->fetchAll();
         return $requested_books;
@@ -29,7 +29,7 @@ class ClientBooks{
 
     public function getIssueRequest(){
         $database = \Database::getInstance();
-        $statement = $database->prepare("SELECT distinct book_id,book_name,requested_by FROM bookrequests where type='i'");
+        $statement = $database->prepare("SELECT distinct book_id,book_name,requested_by FROM bookrequests where type='Issue'");
         $statement->execute();
         $issue_req = $statement->fetchAll();
         return $issue_req;
@@ -37,7 +37,7 @@ class ClientBooks{
 
     public function getReturnRequest(){
         $database = \Database::getInstance();
-        $statement = $database->prepare("SELECT distinct book_id,book_name,requested_by FROM bookrequests where type='r'");
+        $statement = $database->prepare("SELECT distinct book_id,book_name,requested_by FROM bookrequests where type='Return'");
         $statement->execute();
         $return_req = $statement->fetchAll();
         return $return_req;

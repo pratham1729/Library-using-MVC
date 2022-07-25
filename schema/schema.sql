@@ -49,7 +49,7 @@ CREATE TABLE `bookrequests` (
   `book_id` varchar(15) DEFAULT NULL,
   `book_name` varchar(30) DEFAULT NULL,
   `requested_by` varchar(20) DEFAULT NULL,
-  `type` char(1) DEFAULT NULL
+  `type` varchar(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,7 +83,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES ('12345','LOTR',NULL),('a123bc','GOT',NULL);
+INSERT INTO `books` VALUES ('12345','LOTR',NULL),('a123bc','GOT','a');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('a','$2y$10$XSMxzhNsbGuagiA8.kCYue6YzLvJeQMUQo7sFICaZ/PRB.rFYy8Cq',0,'2dbdd7cf'),('x','$2y$10$XSMxzhNsbGuagiA8.kCYue6YzLvJeQMUQo7sFICaZ/PRB.rFYy8Cq',1,'2dbdd7cf'),('y','$2y$10$mmlNQSQaJ3Zj36St/eouDelK5i2P5.GWyu/5Dyg8Rxll2F2cuWqUO',1,'a21d75fb');
+INSERT INTO `users` VALUES ('a','$2y$10$XSMxzhNsbGuagiA8.kCYue6YzLvJeQMUQo7sFICaZ/PRB.rFYy8Cq',0,'2dbdd7cf'),('x','$2y$10$XSMxzhNsbGuagiA8.kCYue6YzLvJeQMUQo7sFICaZ/PRB.rFYy8Cq',1,'2dbdd7cf'),('y','$2y$10$mmlNQSQaJ3Zj36St/eouDelK5i2P5.GWyu/5Dyg8Rxll2F2cuWqUO',1,'a21d75fb'),('b','$2y$10$471XVR2OpqhbGnoBQRxRtO51S7hNcsmKbIpmRHX/mgIFyWHVtvHwG',0,'0d1e866a'),('z','$2y$10$G/GVox.Bs2KZA29QoYMRAei7u39tk0OAm1DHyeY0EVf7bUMkLfDly',1,'4c59dad7');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -121,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-17 17:45:00
+-- Dump completed on 2022-07-25 18:58:27

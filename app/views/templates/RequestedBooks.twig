@@ -17,6 +17,9 @@
             {{ book[1] }}
         </td>
         <td style="padding:10px">
+            {{ book[3] }}
+        </td>
+        <td style="padding:10px">
             <form action="/cancel" method="POST"><input type="text" value="{{ book[1] }}" name="book-name" style="display:none"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="book-id" style="display:none"><input type="submit" value="Cancel" class="btn btn-primary"></form>
         </td>
     </tr>

@@ -24,7 +24,7 @@ else
     read DB_USERNAME
 
     echo "Enter your password"
-    read DB_PASSWORD
+    read -s -p DB_PASSWORD
 
     touch config/config.php
 

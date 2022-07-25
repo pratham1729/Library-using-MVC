@@ -9,8 +9,8 @@ class Authenticate {
         $password = $_POST["password"];
         $data=\Model\User::findUser($username);
         if($data){
-            $check=password_verify($password.$data[3],$data[1]);
-            if($check && $data[2]==0){
+            $check=password_verify($password.$data["salt"],$data["password_hash"]);
+            if($check && $data["admin"]==0){
                 $_SESSION["username"]=$username;
                 $_SESSION["auth"]=true;
                 $_SESSION["admin"]=false;
@@ -18,7 +18,7 @@ class Authenticate {
                     "uname" => $username,
                     ));
             }
-            else if($check && $data[2]==1){
+            else if($check && $data["admin"]==1){
                 $_SESSION["username"]=$username;
                 $_SESSION["auth"]=true;
                 $_SESSION["admin"]=true;
@@ -26,13 +26,13 @@ class Authenticate {
                     "uname" => $username,
                     ));
             }
-            else if(!$check && $data[2]==0){
+            else if(!$check && $data["admin"]==0){
                 echo \View\Loader::make()->render("templates/ClientLoginPage.twig", array(
                     "failed" => true,
                     "message" => "Incorrect password",
                     ));
             }
-            else if(!$check && $data[2]==1){
+            else if(!$check && $data["admin"]==1){
                 echo \View\Loader::make()->render("templates/AdminLoginPage.twig", array(
                     "failed" => true,
                     "message" => "Incorrect password",

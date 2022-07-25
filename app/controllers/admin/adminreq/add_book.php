@@ -4,7 +4,7 @@ namespace Controller;
 
 class AddBook{
     public function post(){
-        $book_name=$_REQUEST["bookname"];
+        $book_name=$_REQUEST["book-name"];
         $book_id=$_REQUEST["book-id"];
         \Model\AdminRequests::add($book_id,$book_name);
         $data=\Model\ClientBooks::getAllBooks();

@@ -13,12 +13,12 @@
 {% for book in booklist %}
     <tr>
         <td>
-            {{ book[0] }}
+            {{ book["book_id"] }}
         </td>
         <td>
-            {{ book[1] }}
+            {{ book["book_name"] }}
         </td>
-    {% if book[2]==null %}
+    {% if book["issued_by"]==null %}
         <td>
             Available
         </td>

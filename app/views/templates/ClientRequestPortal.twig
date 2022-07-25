@@ -9,26 +9,26 @@
 </div>
 <table>
 {% for book in booklist %}
-    {% if book[2]==null %}
+    {% if book["issued_by"]==null %}
         <tr>
             <td style="padding:10px">
-                {{ book[0] }}
+                {{ book["book_id"] }}
             </td>
             <td style="padding:10px">
-                {{ book[1] }}
+                {{ book["book_name"] }}
             </td>
             <td style="padding:10px">
-                <form action="/makerequest" method="POST"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book[1] }}" name="book-name" style="display:none"><input type="text" value="{{ book[0] }}" name="book-id" style="display:none"><input type="submit" value="Request" class="btn btn-primary"></form>
+                <form action="/makerequest" method="POST"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book["book_name"] }}" name="book-name" style="display:none"><input type="text" value="{{ book["book_id"] }}" name="book-id" style="display:none"><input type="submit" value="Request" class="btn btn-primary"></form>
             </td>
         </tr>
     {% else %}
-        {% if book[2]==uname %}
+        {% if book["issued_by"]==uname %}
                 <tr>
                     <td style="padding:10px">
-                        {{ book[0] }}
+                        {{ book["book_id"] }}
                     </td>
                     <td style="padding:10px">
-                        {{ book[1] }}
+                        {{ book["book_name"] }}
                     </td>
                     <td style="padding:10px;">
                         Issued to you
@@ -37,10 +37,10 @@
         {% else %}
                 <tr>
                     <td style="padding:10px">
-                        {{ book[0] }}
+                        {{ book["book_id"] }}
                     </td>
                     <td style="padding:10px">
-                        {{ book[1] }}
+                        {{ book["book_name"] }}
                     </td>
                     <td style="padding:10px">
                         Not available

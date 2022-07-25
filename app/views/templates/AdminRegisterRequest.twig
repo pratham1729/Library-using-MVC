@@ -11,13 +11,13 @@
 {% for user in adminreq %}
     <tr>
         <td style="padding:10px">
-            {{ user[0] }}
+            {{ user["name"] }}
         </td>
         <td style="padding:10px">
-            <form action="/approvereq" method="POST"><input type="text" value="{{ user[0] }}" name="username" style="display:none"><input type="text" value="{{ user[1] }}" name="password" style="display:none"><input type="text" value="{{ user[2] }}" name="salt" style="display:none"><input type="submit" value="Approve" class="btn btn-primary"></form>
+            <form action="/approvereq" method="POST"><input type="text" value="{{ user["name"] }}" name="username" style="display:none"><input type="text" value="{{ user["password"] }}" name="password" style="display:none"><input type="text" value="{{ user["salt"] }}" name="salt" style="display:none"><input type="submit" value="Approve" class="btn btn-primary"></form>
         </td>
         <td style="padding:10px">
-            <form action="/denyreq" method="POST"><input type="text" value="{{ user[0] }}" name="username" style="display:none"><input type="text" value="{{ user[1] }}" name="password" style="display:none"><input type="submit" value="Deny" class="btn btn-primary"></form>
+            <form action="/denyreq" method="POST"><input type="text" value="{{ user["name"] }}" name="username" style="display:none"><input type="text" value="{{ user["password"] }}" name="password" style="display:none"><input type="submit" value="Deny" class="btn btn-primary"></form>
         </td>
     </tr>
 {% endfor %}

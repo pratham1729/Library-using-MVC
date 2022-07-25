@@ -11,16 +11,16 @@
 {% for book in requested %}
     <tr>
         <td style="padding:10px">
-            {{ book[0] }}
+            {{ book["book_id"] }}
         </td>
         <td style="padding:10px">
-            {{ book[1] }}
+            {{ book["book_name"] }}
         </td>
         <td style="padding:10px">
-            {{ book[3] }}
+            {{ book["type"] }}
         </td>
         <td style="padding:10px">
-            <form action="/cancel" method="POST"><input type="text" value="{{ book[1] }}" name="book-name" style="display:none"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="book-id" style="display:none"><input type="submit" value="Cancel" class="btn btn-primary"></form>
+            <form action="/cancel" method="POST"><input type="text" value="{{ book["book_name"] }}" name="book-name" style="display:none"><input type="text" value="{{ uname }}" name="username" style="display:none"><input type="text" value="{{ book["book_id"] }}" name="book-id" style="display:none"><input type="submit" value="Cancel" class="btn btn-primary"></form>
         </td>
     </tr>
 {% endfor %}

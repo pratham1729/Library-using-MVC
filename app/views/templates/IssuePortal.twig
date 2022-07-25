@@ -11,19 +11,19 @@
 {% for book in issue %}
     <tr>
         <td style="padding:10px">
-            {{ book[0] }}
+            {{ book["book_id"] }}
         </td>
         <td style="padding:10px">
-            {{ book[1] }}
+            {{ book["book_name"] }}
         </td>
         <td>
-            {{ book[2] }}
+            {{ book["requested_by"] }}
         </td>
         <td style="padding:10px">
-            <form action="/issueaccept" method="POST"><input type="text" value="{{ book[2] }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="book-id" style="display:none"><input type="submit" value="Approve" class="btn btn-primary"></form>
+            <form action="/issueaccept" method="POST"><input type="text" value="{{ book["requested_by"] }}" name="username" style="display:none"><input type="text" value="{{ book["book_id"] }}" name="book-id" style="display:none"><input type="submit" value="Approve" class="btn btn-primary"></form>
         </td>
         <td style="padding:10px">
-            <form action="/issuedecline" method="POST"><input type="text" value="{{ book[2] }}" name="username" style="display:none"><input type="text" value="{{ book[0] }}" name="book-id" style="display:none"><input type="submit" value="Deny" class="btn btn-primary"></form>
+            <form action="/issuedecline" method="POST"><input type="text" value="{{ book["requested_by"] }}" name="username" style="display:none"><input type="text" value="{{ book["book_id"] }}" name="book-id" style="display:none"><input type="submit" value="Deny" class="btn btn-primary"></form>
         </td>
     </tr>
 {% endfor %}

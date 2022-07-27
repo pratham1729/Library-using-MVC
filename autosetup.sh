@@ -36,9 +36,9 @@ else
     echo '$DB_PASSWORD="'$DB_PASSWORD'";'>> config/config.php
     echo '?>' >> config/config.php
 
-    mysql -u $DB_USERNAME -p$DB_PASSWORD -e "create database if not exists $DB_NAME"
+    MYSQL_PWD=$DB_PASSWORD mysql -u $DB_USERNAME -e "create database if not exists $DB_NAME"
     if [ $? -eq 0 ]; then
-        mysql -u $DB_USERNAME -p$DB_PASSWORD $DB_NAME < schema/schema.sql
+        MYSQL_PWD=$DB_PASSWORD mysql -u $DB_USERNAME $DB_NAME < schema/schema.sql
         if [ $? -eq 0 ]; then        
             composer install
             composer dump-autoload
